@@ -5,12 +5,10 @@ pluginManagement {
         mavenCentral()
     }
 }
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+
 rootProject.name = "Coolblue-Android-Assignment"
 include ':app'
+include ':Domain'
+include ':Data'
+include ':Remote'
+include ':Context'
