@@ -4,6 +4,7 @@
     package="com.coolblue_android_assignment">
 
     <application
+        android:name="com.coolblue_android_assignment.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
