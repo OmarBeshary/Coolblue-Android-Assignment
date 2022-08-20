@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+kapt {
+    generateStubs = true
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+}
+
+dependencies {
+
+    testImplementation 'junit:junit:4.13.2'
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
+    implementation 'androidx.core:core-ktx:1.8.0'
+
+    /**
+     * Moshi dependencies.
+     */
+    def moshi_json_parser = '1.13.0'
+    implementation "com.squareup.moshi:moshi:$moshi_json_parser"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_json_parser"
+    def moshi_adapters = '1.13.0'
+    implementation "com.squareup.moshi:moshi-adapters:$moshi_adapters"
+
+    /**
+     * Retrofit dependencies.
+     */
+    def retrofit_version = '2.9.0'
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+
+    /**
+     * Dagger dependencies.
+     */
+    def dagger_version = "2.40.5"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    /**
+     * Dagger Android dependencies.
+     */
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    implementation project(":Context")
+    implementation project(":Domain")
+}
+
+repositories {
+    mavenCentral()
+}
