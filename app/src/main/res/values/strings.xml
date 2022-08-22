@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Coolblue-Android-Assignment</string>
+    <string name="search_hint">What are you looking for ?</string>
+    <string name="float_format">%.2f</string>
+    <string name="n_of_reviews_format">reviews %d</string>
+    <string name="delivered_tomorrow">Delivered Tomorrow</string>
 </resources>

@@ -37,7 +37,7 @@ android {
     }
 
     buildFeatures{
-        viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -47,6 +47,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     testImplementation 'junit:junit:4.13.2'
     /**
      * RxJava dependencies.
@@ -78,5 +81,21 @@ dependencies {
     implementation project(':Data')
     implementation project(':Domain')
     implementation project(':Remote')
+
+    /**
+     * Moshi dependencies.
+     */
+    def moshi_json_parser = '1.13.0'
+    implementation "com.squareup.moshi:moshi:$moshi_json_parser"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_json_parser"
+    def moshi_adapters = '1.13.0'
+    implementation "com.squareup.moshi:moshi-adapters:$moshi_adapters"
+
+    /**
+     * Mockk dependencies.
+     */
+    def mockk_version = "1.12.1"
+    testImplementation "io.mockk:mockk:$mockk_version"
+
 
 }
