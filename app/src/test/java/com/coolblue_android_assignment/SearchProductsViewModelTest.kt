@@ -3,10 +3,7 @@ package com.coolblue_android_assignment
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.coolblue_android_assignment.ui.search.SearchProductsViewModel
-import com.coolblue_android_assignment.ui.search.mapper.SearchProductsPresentationMapper
 import com.coolblue_android_assignment.ui.search.model.ProductSearchEventData
-import com.domain.search.models.SearchProductDomain
-import com.domain.search.repo.SearchProductsRepository
 import com.domain.search.use_cases.SearchProductsByPageUseCase
 import com.domain.search.use_cases.SearchProductsUseCase
 import io.mockk.MockKAnnotations
@@ -14,7 +11,6 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verifySequence
 import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.schedulers.Schedulers
 import org.junit.Assert.assertFalse
 import org.junit.Before
 import org.junit.Rule
@@ -32,6 +28,7 @@ class SearchProductsViewModelTest {
 
     @MockK
     private lateinit var searchProductsUseCase: SearchProductsUseCase
+
     @MockK
     private lateinit var searchProductsByPageUseCase: SearchProductsByPageUseCase
 
