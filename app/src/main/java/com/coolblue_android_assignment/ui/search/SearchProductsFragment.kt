@@ -91,9 +91,21 @@ class SearchProductsFragment : Fragment() {
 
     private fun initObservers() {
         viewModel.observeSearchProduct().observe(viewLifecycleOwner) { event ->
-            if (event is ProductSearchEventData.ProductSearchSuccessState)
+            if (event is ProductSearchEventData.ProductSearchSuccessState) {
+                hideLoading()
                 productsAdapter.updateProductList(products = event.products.toMutableList())
+            }
+            if (event is ProductSearchEventData.LoadingState)
+                showLoading()
         }
+    }
+
+    private fun hideLoading() {
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun showLoading() {
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun getNextSearchResult() {

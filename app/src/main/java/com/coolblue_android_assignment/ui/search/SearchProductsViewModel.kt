@@ -26,7 +26,9 @@ class SearchProductsViewModel @Inject constructor(
 
     fun searchProduct(query: String) {
         executeSingle(source = searchProductsUseCase(query),
-            loadingConsumer = {},
+            loadingConsumer = {
+                searchProductsScreenStates.value = ProductSearchEventData.loading()
+            },
             successConsumer = { model ->
                 val searchProductsScreen =
                     SearchProductsPresentationMapper.toSearchProductsPresentation(
@@ -54,7 +56,7 @@ class SearchProductsViewModel @Inject constructor(
             nextPage = nextPage
         ),
             loadingConsumer = {
-
+                searchProductsScreenStates.value = ProductSearchEventData.loading()
             }, successConsumer = { model ->
                 val searchProductsScreen =
                     SearchProductsPresentationMapper.toSearchProductsPresentation(
