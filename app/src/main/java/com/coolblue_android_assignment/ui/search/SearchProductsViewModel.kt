@@ -39,7 +39,9 @@ class SearchProductsViewModel @Inject constructor(
                 searchProductsScreenStates.value = ProductSearchEventData.productSearchSuccessState(
                     products = searchProductsScreen.products
                 )
-            }, throwableConsumer = {})
+            }, throwableConsumer = {
+                searchProductsScreenStates.value = ProductSearchEventData.error()
+            })
     }
 
     fun canLoadNextPage(
@@ -69,7 +71,7 @@ class SearchProductsViewModel @Inject constructor(
                     )
 
             }, throwableConsumer = {
-
+                searchProductsScreenStates.value = ProductSearchEventData.error()
             })
     }
 

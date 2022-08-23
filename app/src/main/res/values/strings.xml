@@ -4,4 +4,5 @@
     <string name="float_format">%.2f</string>
     <string name="n_of_reviews_format">reviews %d</string>
     <string name="delivered_tomorrow">Delivered Tomorrow</string>
+    <string name="error_msg">Something went wrong !</string>
 </resources>

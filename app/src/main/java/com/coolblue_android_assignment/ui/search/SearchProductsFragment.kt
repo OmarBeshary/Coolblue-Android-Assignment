@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.coolblue_android_assignment.R
 import com.coolblue_android_assignment.databinding.FragmentSearchProductsBinding
 import com.coolblue_android_assignment.extensions.hideKeyboard
 import com.coolblue_android_assignment.ui.search.model.ProductSearchEventData
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -97,7 +100,21 @@ class SearchProductsFragment : Fragment() {
             }
             if (event is ProductSearchEventData.LoadingState)
                 showLoading()
+            if (event is ProductSearchEventData.ErrorState)
+                showError()
         }
+    }
+
+    private fun showError() {
+        Snackbar.make(binding.root, getString(R.string.error_msg), Snackbar.LENGTH_SHORT)
+            .apply {
+                setBackgroundTint(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.red
+                    )
+                )
+            }.show()
     }
 
     private fun hideLoading() {

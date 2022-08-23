@@ -7,10 +7,14 @@ sealed class ProductSearchEventData {
     class ProductSearchSuccessState(val products: List<ProductUiModel>) :
         ProductSearchEventData()
 
+    object ErrorState : ProductSearchEventData()
+
     companion object {
         fun loading(): ProductSearchEventData = LoadingState
 
         fun productSearchSuccessState(products: List<ProductUiModel>): ProductSearchEventData =
             ProductSearchSuccessState(products)
+
+        fun error(): ProductSearchEventData = ErrorState
     }
 }
