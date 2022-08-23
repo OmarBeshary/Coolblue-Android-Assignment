@@ -14,5 +14,8 @@
 
 - [MVVM with Clean Arch.](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=Cj0KCQjwwuD7BRDBARIsAK_5YhXmgxuAX06ItxTuvmX-rwsYgtnIOnB1UrrktXmcVkCom0_TsxLk9JAaAoomEALw_wcB&gclsrc=aw.ds)
 
-[feature branch|search_products] : https://github.com/OmarBeshary/Coolblue-Android-Assignment/tree/search_products
+
+<h2>Feature Branch</h2>
+
+- [search_products](https://github.com/OmarBeshary/Coolblue-Android-Assignment/tree/search_products)
 
